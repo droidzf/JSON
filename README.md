@@ -1,6 +1,11 @@
 # JSON
 JSON解析
 
+#### install
+```sh
+ go get github.com/droidzf/JSON 
+```
+
 ```go
 testJson := JSON.ParseObj(`{
         "status": 0,
@@ -25,17 +30,17 @@ testJson := JSON.ParseObj(`{
 println(testJson.ToString())
 ```
 
-####获取object
+#### 获取object
 ```go
 testObj := result.GetObject("data")
 println(testObj.ToString())
 ```
-####获取array
+#### 获取array
 ```go
 testarray :=testObj.GetArray("array").GetArray(0)
 println(testarray.ToString())//[{"a":1},{"a":2}]
 ```
-####获取值
+#### 获取值
 ```go
 status := testJson.Get("status").(int)   //0
 sint   := testJson.GetInt("status")      //0
@@ -43,7 +48,7 @@ suc    := testJson.GetString("msg")      //success
 boo    := testJson.GetBoolean("success") //true
 result.GetObject("data").GetArray("rows").GetObject(0).GetString("name")//李白
 ```
-####API
+#### API
 
 |  方法名        |  说明  |
 |  ----         | ----  |
